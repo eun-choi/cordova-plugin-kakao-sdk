@@ -170,10 +170,10 @@ public class KakaoCordovaSDK extends CordovaPlugin {
             kakaoLinkImageUploadResponseCallback = new KakaoLinkImageUploadResponseCallback(callbackContext);
             this.uploadImage(callbackContext, options);
             return true;
-        } else if (action.equals("deleteUploadedImage")) {
+        /*} else if (action.equals("deleteUploadedImage")) {
             kakaoLinkImageDeleteResponseCallback = new KakaoLinkImageDeleteResponseCallback(callbackContext);
             this.deleteUploadedImage(callbackContext, options);
-            return true;
+            return true;*/
         } else if (action.equals("postStory")) {
             this.postStory(callbackContext, options);
             return true;
@@ -1001,7 +1001,7 @@ public class KakaoCordovaSDK extends CordovaPlugin {
         }
     }
 
-    private void deleteUploadedImage(final CallbackContext callbackContext, JSONArray options) {
+    /*private void deleteUploadedImage(final CallbackContext callbackContext, JSONArray options) {
         try {
             final JSONObject object = options.getJSONObject(0);
 
@@ -1019,7 +1019,7 @@ public class KakaoCordovaSDK extends CordovaPlugin {
             e.printStackTrace();
             KakaoCordovaErrorHandler.errorHandler(callbackContext, new ErrorResult(e));
         }
-    }
+    }*/
 
     private void postStory(CallbackContext callbackContext, JSONArray options) {
         try {
