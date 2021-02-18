@@ -28,4 +28,4 @@ FOUNDATION_EXPORT const unsigned char KakaoOpenSDKVersionString[];
 #import <KakaoOpenSDK/KOSessionTask+AgeAuthAPI.h>
 #import <KakaoOpenSDK/KOSessionTask+AppFriendAPI.h>
 
-#define KAKAO_SDK_IOS_VERSION_STRING    @"1.23.5"
+#define KAKAO_SDK_IOS_VERSION_STRING    @"1.23.7"
