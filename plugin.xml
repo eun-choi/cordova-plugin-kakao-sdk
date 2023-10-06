@@ -12,8 +12,8 @@
 
   <preference name="KAKAO_APP_KEY" />
 
-  <hook type="after_prepare" src="hooks/postinstall.js" />
-  <!--<hook type="after_plugin_add" src="hooks/postinstall.js" />
+  <!--<hook type="after_prepare" src="hooks/postinstall.js" />
+  <hook type="after_plugin_add" src="hooks/postinstall.js" />
   <hook type="after_platform_add" src="hooks/postinstall.js" />-->
 
   <platform name="ios">
