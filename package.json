@@ -6,20 +6,25 @@
   "cordova": {
     "id": "cordova-plugin-kakao-sdk",
     "platforms": [
-      "ios",
-      "android"
+      "android",
+      "ios"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raccoondev85/cordova-plugin-kakao-sdk.git"
+  },
   "keywords": [
+    "cordova",
+    "kakao",
+    "kakaotalk",
+    "login",
+    "kakao-sdk",
+    "kakaoaccount",
     "ecosystem:cordova",
-    "cordova-ios",
-    "cordova-android"
+    "cordova-android",
+    "cordova-ios"
   ],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "glob": "^7.1.3",
-    "semver": "^6.0.0",
-    "xcode": "^2.0.0"
-  }
+  "author": "raccoondev85",
+  "license": "MIT"
 }
