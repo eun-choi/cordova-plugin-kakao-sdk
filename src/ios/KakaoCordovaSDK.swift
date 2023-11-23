@@ -70,6 +70,21 @@ class KakaoCordovaSDK: CDVPlugin {
     }
   }
 
+    @objc(logout:) func logout(command: CDVInvokedUrlCommand) {
+    DispatchQueue.main.async {
+      UserApi.shared.logout {
+        (error) in
+        if let error = error {
+          let result = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: error?.localizedDescription)
+          commandDelegate.send(result, callbackId: command.callbackId)
+        } else {
+          let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "Logout Done")
+          self.commandDelegate.send(result, callbackId: command.callbackId)
+        }
+      }
+    }
+  }
+
   @objc(sendLinkFeed:) func sendLinkFeed(command: CDVInvokedUrlCommand) {
     if let dict = command.arguments.last as? NSDictionary {
       let buttons = createButtons(dict: dict)

@@ -31,9 +31,8 @@
       <array>
         <string>kakao$KAKAO_APP_KEY</string>
         <string>kakaokompassauth</string>
-        <string>storykompassauth</string>
         <string>kakaolink</string>
-        <string>storylink</string>
+        <string>kakaoplus</string>
         <string>kakaotalk-5.9.7</string>
       </array>
     </config-file>
@@ -42,11 +41,15 @@
 
     <podspec>
       <config>
-        <source url="https://github.com/CocoaPods/Specs.git" />
+        <source url="https://cdn.cocoapods.org/"/>
       </config>
-      <pods>
-        <pod name="KakaoSDK" spec="2.14.0" />
-        <pod name="Alamofire" spec="5.6.4" />
+      <pods use-frameworks="true">
+        <pod name="KakaoSDKCommon" spec="2.19.0" />
+        <pod name="KakaoSDKAuth" spec="2.19.0" />
+        <pod name="KakaoSDKUser" spec="2.19.0" />
+        <pod name="KakaoSDKShare" spec="2.19.0" />
+        <pod name="KakaoSDKTemplate" spec="2.19.0" />
+        <pod name="Alamofire" spec="5.8.1" />
       </pods>
     </podspec>
   </platform>
