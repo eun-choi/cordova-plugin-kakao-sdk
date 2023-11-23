@@ -26,7 +26,16 @@
     <config-file target="*-Info.plist" parent="KAKAO_APP_KEY">
       <string>$KAKAO_APP_KEY</string>
     </config-file>
-
+    <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+      <array>
+        <dict>
+          <key>CFBundleURLSchemes</key>
+          <array>
+            <string>kakao$KAKAO_APP_KEY</string>
+          </array>
+        </dict>
+      </array>
+    </config-file>
     <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
       <array>
         <string>kakao$KAKAO_APP_KEY</string>
@@ -44,11 +53,11 @@
         <source url="https://cdn.cocoapods.org/"/>
       </config>
       <pods use-frameworks="true">
-        <pod name="KakaoSDKCommon" spec="2.19.0" />
-        <pod name="KakaoSDKAuth" spec="2.19.0" />
-        <pod name="KakaoSDKUser" spec="2.19.0" />
-        <pod name="KakaoSDKShare" spec="2.19.0" />
-        <pod name="KakaoSDKTemplate" spec="2.19.0" />
+        <pod name="KakaoSDKCommon" spec="2.14.0" />
+        <pod name="KakaoSDKAuth" spec="2.14.0" />
+        <pod name="KakaoSDKUser" spec="2.14.0" />
+        <pod name="KakaoSDKShare" spec="2.14.0" />
+        <pod name="KakaoSDKTemplate" spec="2.14.0" />
         <pod name="Alamofire" spec="5.8.1" />
       </pods>
     </podspec>
@@ -70,6 +79,7 @@
     <config-file target="AndroidManifest.xml" parent="/manifest">
       <uses-permission android:name="android.permission.INTERNET" />
       <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+      <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
