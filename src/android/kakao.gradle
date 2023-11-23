@@ -1,8 +1,16 @@
 repositories {
-  mavenCentral()
-  maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
+	mavenCentral()
+    maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
 }
 
 dependencies {
-  implementation 'com.kakao.sdk:v2-all:2.13.0'
+	api('com.kakao.sdk:kakaotalk:1.30.7@aar') {
+		transitive = true
+	}
+	api('com.kakao.sdk:kakaolink:1.30.7@aar') {
+		transitive = true
+	}
+	api('com.kakao.sdk:plusfriend:1.30.7@aar') {
+		transitive = true
+	}
 }
