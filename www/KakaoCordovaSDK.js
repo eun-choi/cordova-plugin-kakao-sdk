@@ -1,16 +1,11 @@
-
-var exec = require("cordova/exec");
+var exec = require('cordova/exec');
 
 var KakaoCordovaSDK = {
   login: function (successCallback, errorCallback) {
-    exec(successCallback, errorCallback, "KakaoCordovaSDK", "login", []);
+    exec(successCallback, errorCallback, 'KakaoCordovaSDK', 'login', []);
   },
 
-  sendLinkFeed: function (template, successCallback, errorCallback) {
-    exec(successCallback, errorCallback, "KakaoCordovaSDK", "sendLinkFeed", [template]);
-  },
-
-  logout: function(successCallback, errorCallback) {
+  logout: function (successCallback, errorCallback) {
     exec(successCallback, errorCallback, 'KakaoCordovaSDK', 'logout', []);
   },
 };
