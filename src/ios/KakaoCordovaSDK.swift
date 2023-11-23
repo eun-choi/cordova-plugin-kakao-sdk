@@ -75,8 +75,8 @@ class KakaoCordovaSDK: CDVPlugin {
       UserApi.shared.logout {
         (error) in
         if let error = error {
-          let result = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: error?.localizedDescription)
-          commandDelegate.send(result, callbackId: command.callbackId)
+          let result = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "Logout Error")
+          self.commandDelegate.send(result, callbackId: command.callbackId)
         } else {
           let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "Logout Done")
           self.commandDelegate.send(result, callbackId: command.callbackId)
