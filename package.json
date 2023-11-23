@@ -6,8 +6,8 @@
   "cordova": {
     "id": "cordova-plugin-kakao-sdk",
     "platforms": [
-      "android",
-      "ios"
+      "ios",
+      "android"
     ]
   },
   "repository": {
@@ -22,9 +22,14 @@
     "kakao-sdk",
     "kakaoaccount",
     "ecosystem:cordova",
-    "cordova-android",
-    "cordova-ios"
+    "cordova-ios",
+    "cordova-android"
   ],
-  "author": "raccoondev85",
-  "license": "MIT"
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^7.1.3",
+    "semver": "^6.0.0",
+    "xcode": "^2.0.0"
+  }
 }
