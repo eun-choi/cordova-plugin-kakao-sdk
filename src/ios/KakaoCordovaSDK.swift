@@ -52,19 +52,19 @@ class KakaoCordovaSDK: CDVPlugin {
   func loginCallback(oauthToken: OAuthToken?, error: Error?, callbackId: String) {
     if error != nil {
       let result = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: error?.localizedDescription)
-      commandDelegate.send(result, callbackId: callbackId)
+      self.commandDelegate!.send(result, callbackId: callbackId)
     } else if let oauthToken = oauthToken {
       UserApi.shared.me {
         user, error in
         if error != nil {
           let result = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: error?.localizedDescription)
-          self.commandDelegate.send(result, callbackId: callbackId)
+          self.commandDelegate!.send(result, callbackId: callbackId)
         } else {
           let result = CDVPluginResult(
             status: CDVCommandStatus_OK,
             messageAs: ["id": user!.id!, "result": true, "email": user!.kakaoAccount!.email!, "accessToken": oauthToken.accessToken]
           )
-          self.commandDelegate.send(result, callbackId: callbackId)
+          self.commandDelegate!.send(result, callbackId: callbackId)
         }
       }
     }
@@ -76,10 +76,10 @@ class KakaoCordovaSDK: CDVPlugin {
         (error) in
         if let error = error {
           let result = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "Logout Error")
-          self.commandDelegate.send(result, callbackId: command.callbackId)
+          self.commandDelegate!.send(result, callbackId: command.callbackId)
         } else {
           let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "Logout Done")
-          self.commandDelegate.send(result, callbackId: command.callbackId)
+          self.commandDelegate!.send(result, callbackId: command.callbackId)
         }
       }
     }
