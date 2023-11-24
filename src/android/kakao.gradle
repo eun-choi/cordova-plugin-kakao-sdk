@@ -1,8 +1,11 @@
 repositories {
+  google()
   mavenCentral()
   maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
 }
 
 dependencies {
-  implementation 'com.kakao.sdk:v2-all:2.13.0'
+  implementation 'com.kakao.sdk:v2-common:2.18.0'
+  implementation 'com.kakao.sdk:v2-auth:2.18.0'
+  implementation 'com.kakao.sdk:v2-user:2.18.0'
 }

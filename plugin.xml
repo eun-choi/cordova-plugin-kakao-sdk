@@ -42,6 +42,7 @@
         <string>kakaokompassauth</string>
         <string>kakaolink</string>
         <string>kakaoplus</string>
+        <string>oauth</string>
         <string>kakaotalk-5.9.7</string>
       </array>
     </config-file>
@@ -53,12 +54,10 @@
         <source url="https://cdn.cocoapods.org/"/>
       </config>
       <pods use-frameworks="true">
-        <pod name="KakaoSDKCommon" spec="2.14.0" />
-        <pod name="KakaoSDKAuth" spec="2.14.0" />
-        <pod name="KakaoSDKUser" spec="2.14.0" />
-        <pod name="KakaoSDKShare" spec="2.14.0" />
-        <pod name="KakaoSDKTemplate" spec="2.14.0" />
-        <pod name="Alamofire" spec="5.6.4" />
+        <pod name="KakaoSDKCommon" spec="2.15.0" />
+        <pod name="KakaoSDKAuth" spec="2.15.0" />
+        <pod name="KakaoSDKUser" spec="2.15.0" />
+        <pod name="Alamofire" spec="5.8.1" />
       </pods>
     </podspec>
   </platform>
@@ -69,12 +68,19 @@
         <param name="onload" value="true" />
         <param name="android-package" value="com.needer.plugin.kakao.KakaoCordovaSDK" />
       </feature>
-
       <access origin="https://*.kakao.com" />
       <access origin="https://*.kakao.co.kr" />
       <access origin="https://*.kakaocdn.net" />
     </config-file>
 
+    <source-file src="src/android/res/values/kakao_strings.xml" target-dir="res/values" />
+      <source-file src="src/android/res/values-ko/kakao_strings.xml" target-dir="res/values-ko" />
+      <config-file target="res/values/kakao_strings.xml" parent="/*">
+        <string name="kakao_app_key">$KAKAO_APP_KEY</string>
+        <string name="kakao_scheme">kakao$KAKAO_APP_KEY</string>
+        <string name="kakaolink_host">kakaolink</string>
+        <string name="kakao_oauth">oauth</string>
+    </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/manifest">
       <uses-permission android:name="android.permission.INTERNET" />
@@ -83,7 +89,7 @@
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
-      <meta-data android:name="com.kakao.sdk.AppKey" android:value="$KAKAO_APP_KEY" />
+      <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key" />
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
@@ -92,12 +98,27 @@
           <action android:name="android.intent.action.VIEW" />
           <category android:name="android.intent.category.DEFAULT" />
           <category android:name="android.intent.category.BROWSABLE" />
-          <data android:scheme="kakao$KAKAO_APP_KEY" android:host="oauth" />
+          <data android:scheme="@string/kakao_scheme" android:host="@string/kakaolink_host" />
+          <data android:scheme="@string/kakao_scheme" android:host="@string/kakao_oauth" />
         </intent-filter>
       </activity>
     </config-file>
 
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <queries>
+        <package android:name="com.kakao.talk" />
+      </queries>
+    </config-file>
+
     <framework src="src/android/kakao.gradle" custom="true" type="gradleReference" />
     <source-file src="src/android/KakaoCordovaSDK.kt" target-dir="app/src/main/kotlin/com/needer/plugin/kakao" />
+    <resource-file src="src/android/res/values/styles.xml" target="res/values/styles.xml" />
+    <resource-file src="src/android/res/drawable/account.png" target="res/drawable/account.png" />
+    <resource-file src="src/android/res/drawable/btn_x.png" target="res/drawable/btn_x.png" />
+    <resource-file src="src/android/res/drawable/story.png" target="res/drawable/story.png" />
+    <resource-file src="src/android/res/drawable/talk.png" target="res/drawable/talk.png" />
+    <resource-file src="src/android/res/drawable/selector_login_button.xml" target="res/drawable/selector_login_button.xml" />
+    <resource-file src="src/android/res/layout/layout_login_dialog.xml" target="res/layout/layout_login_dialog.xml" />
+    <resource-file src="src/android/res/layout/layout_login_item.xml" target="res/layout/layout_login_item.xml" />
   </platform>
 </plugin>
