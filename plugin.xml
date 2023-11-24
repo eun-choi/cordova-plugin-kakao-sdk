@@ -58,7 +58,7 @@
         <pod name="KakaoSDKUser" spec="2.14.0" />
         <pod name="KakaoSDKShare" spec="2.14.0" />
         <pod name="KakaoSDKTemplate" spec="2.14.0" />
-        <pod name="Alamofire" spec="5.8.1" />
+        <pod name="Alamofire" spec="5.6.4" />
       </pods>
     </podspec>
   </platform>
