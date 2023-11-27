@@ -9,13 +9,10 @@ class KakaoCordovaSDK: CDVPlugin {
     let key = Bundle.main.object(forInfoDictionaryKey: "KAKAO_APP_KEY") as? String
     if let key = key {
       KakaoSDK.initSDK(appKey: key)
-      print("KakaoSDK initSDK.")
-      // NotificationCenter.default.addObserver(self, selector: #selector(handleOpenURL(_:)), name: NSNotification.Name.CDVPluginHandleOpenURLWithAppSourceAndAnnotation, object: nil)
     }
   }
 
   override func handleOpenURL(_ notification: Notification!) {
-    print("KakaoSDK handleOpenURL.")
     if let _url = notification.object as? NSURL {
       if let _url = _url.absoluteString {
         if let url = URL(string: _url) {
@@ -29,7 +26,6 @@ class KakaoCordovaSDK: CDVPlugin {
 
   @objc(login:) func login(command: CDVInvokedUrlCommand) {
     DispatchQueue.main.async {
-      print("KakaoSDK login.")
       /*if (UserApi.isKakaoTalkLoginAvailable()) {
         UserApi.shared.loginWithKakaoTalk(
           launchMethod: .CustomScheme, completion: {
@@ -49,7 +45,6 @@ class KakaoCordovaSDK: CDVPlugin {
   }
 
   func loginCallback(oauthToken: OAuthToken?, error: Error?, callbackId: String) {
-    print("KakaoSDK loginCallback.")
     if error != nil {
       let result = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: error?.localizedDescription)
       self.commandDelegate.send(result, callbackId: callbackId)
@@ -72,7 +67,6 @@ class KakaoCordovaSDK: CDVPlugin {
 
   @objc(logout:) func logout(command: CDVInvokedUrlCommand) {
     DispatchQueue.main.async {
-      print("KakaoSDK logout.")
       UserApi.shared.logout {
         (error) in
         if let error = error {

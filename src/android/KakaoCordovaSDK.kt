@@ -15,17 +15,14 @@ import org.apache.cordova.CordovaPlugin
 import org.json.JSONArray
 import org.json.JSONObject
 
-
 class KakaoCordovaSDK : CordovaPlugin() {
   override fun pluginInitialize() {
     super.pluginInitialize()
-
     try {
       val e: String = super.cordova.context.packageName
       val ai: ApplicationInfo = super.cordova.context.packageManager.getApplicationInfo(e, PackageManager.GET_META_DATA)
       val bundle: Bundle = ai.metaData
       var apiKey = bundle.getString("com.kakao.sdk.AppKey")
-
       if (apiKey != null) {
         KakaoSdk.init(super.cordova.context, apiKey)
       }
@@ -41,14 +38,12 @@ class KakaoCordovaSDK : CordovaPlugin() {
           this.login(callbackContext)
         }
       }
-
       "logout" -> {
         if (callbackContext != null) {
           this.logout(callbackContext)
         }
       }
     }
-
     return true
   }
 
@@ -74,23 +69,18 @@ class KakaoCordovaSDK : CordovaPlugin() {
         }
       }
     } else {
-      this.loginWithBrowser(callbackContext)
-    }
-  }
-
-  private fun loginWithBrowser(callbackContext: CallbackContext) {
-    UserApiClient.instance.loginWithKakaoAccount(this.cordova.context) { token, error ->
-      if (error != null) {
-        callbackContext.error(error.localizedMessage)
-        return@loginWithKakaoAccount
-      }
-
-      if (token != null) {
-        this.loginSuccessCallback(token.accessToken, callbackContext)
-        return@loginWithKakaoAccount
-      } else {
-        callbackContext.error("Invalid Credential")
-        return@loginWithKakaoAccount
+      UserApiClient.instance.loginWithKakaoAccount(this.cordova.context) { token, error ->
+        if (error != null) {
+          callbackContext.error(error.localizedMessage)
+          return@loginWithKakaoAccount
+        }
+        if (token != null) {
+          this.loginSuccessCallback(token.accessToken, callbackContext)
+          return@loginWithKakaoAccount
+        } else {
+          callbackContext.error("Invalid Credential")
+          return@loginWithKakaoAccount
+        }
       }
     }
   }
@@ -101,7 +91,6 @@ class KakaoCordovaSDK : CordovaPlugin() {
         callbackContext.error(error.localizedMessage)
         return@me
       }
-
       if (user != null) {
         val json = JSONObject()
         json.put("id", user.id)
@@ -119,7 +108,7 @@ class KakaoCordovaSDK : CordovaPlugin() {
   }
 
   private fun logout(callbackContext: CallbackContext) {
-    UserApiClient.instance.logout() { error ->
+    UserApiClient.instance.logout { error ->
       if (error != null) {
         callbackContext.error("Kakao Logout Error")
         return@logout
