@@ -69,18 +69,22 @@ class KakaoCordovaSDK : CordovaPlugin() {
         }
       }
     } else {
-      UserApiClient.instance.loginWithKakaoAccount(this.cordova.context) { token, error ->
-        if (error != null) {
-          callbackContext.error(error.localizedMessage)
-          return@loginWithKakaoAccount
-        }
-        if (token != null) {
-          this.loginSuccessCallback(token.accessToken, callbackContext)
-          return@loginWithKakaoAccount
-        } else {
-          callbackContext.error("Invalid Credential")
-          return@loginWithKakaoAccount
-        }
+      this.loginWithBrowser(callbackContext)
+    }
+  }
+
+  private fun loginWithBrowser(callbackContext: CallbackContext) {
+    UserApiClient.instance.loginWithKakaoAccount(this.cordova.context) { token, error ->
+      if (error != null) {
+        callbackContext.error(error.localizedMessage)
+        return@loginWithKakaoAccount
+      }
+      if (token != null) {
+        this.loginSuccessCallback(token.accessToken, callbackContext)
+        return@loginWithKakaoAccount
+      } else {
+        callbackContext.error("Invalid Credential")
+        return@loginWithKakaoAccount
       }
     }
   }
