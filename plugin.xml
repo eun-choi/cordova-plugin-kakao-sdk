@@ -84,15 +84,17 @@
 
     <config-file target="AndroidManifest.xml" parent="application">
       <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key" />
-      <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity" android:exported="true">
-        <intent-filter>
-          <action android:name="android.intent.action.VIEW" />
-          <category android:name="android.intent.category.DEFAULT" />
-          <category android:name="android.intent.category.BROWSABLE" />
-          <data android:scheme="@string/kakao_scheme" android:host="@string/kakaolink_host" />
-          <data android:scheme="@string/kakao_scheme" android:host="@string/kakao_oauth" />
-        </intent-filter>
-      </activity>
+      <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity" android:exported="true" />
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="application/activity">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="@string/kakao_scheme" android:host="@string/kakaolink_host" />
+        <data android:scheme="@string/kakao_scheme" android:host="@string/kakao_oauth" />
+      </intent-filter>
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/*">
