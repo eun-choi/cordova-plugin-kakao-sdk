@@ -83,14 +83,14 @@
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="application">
-      <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key" />
+      <meta-data android:name="com.kakao.sdk.AppKey" android:value="$KAKAO_APP_KEY" />
       <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity" android:exported="true">
         <intent-filter>
           <action android:name="android.intent.action.VIEW"/>
           <category android:name="android.intent.category.DEFAULT"/>
           <category android:name="android.intent.category.BROWSABLE"/>
-          <data android:host="oauth" android:scheme="@string/kakao_scheme"/>
-          <data android:host="kakaolink" android:scheme="@string/kakao_scheme"/>
+          <data android:host="oauth" android:scheme="kakao$KAKAO_APP_KEY"/>
+          <data android:host="kakaolink" android:scheme="kakao$KAKAO_APP_KEY"/>
         </intent-filter>
       </activity>
     </config-file>
