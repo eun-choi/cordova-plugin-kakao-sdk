@@ -44,6 +44,7 @@ class KakaoCordovaSDK: CDVPlugin {
             self.loginCallback(oauthToken: oauthToken, error: error, callbackId: command.callbackId)
           }
         )
+      //}
     }
   }
 

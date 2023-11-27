@@ -108,6 +108,7 @@ class KakaoCordovaSDK : CordovaPlugin() {
         json.put("email", user.kakaoAccount?.email)
         json.put("result", true)
         json.put("accessToken", accessToken)
+        json.put("profileImage", user.kakaoAccount?.profile?.profileImageUrl)
         callbackContext.success(json)
         return@me
       } else {
