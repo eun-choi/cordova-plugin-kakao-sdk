@@ -54,9 +54,9 @@
         <source url="https://cdn.cocoapods.org/"/>
       </config>
       <pods use-frameworks="true">
-        <pod name="KakaoSDKCommon" spec="2.19.0" />
-        <pod name="KakaoSDKAuth" spec="2.19.0" />
-        <pod name="KakaoSDKUser" spec="2.19.0" />
+        <pod name="KakaoSDKCommon" spec="2.20.0" />
+        <pod name="KakaoSDKAuth" spec="2.20.0" />
+        <pod name="KakaoSDKUser" spec="2.20.0" />
         <pod name="Alamofire" spec="5.8.1" />
       </pods>
     </podspec>
